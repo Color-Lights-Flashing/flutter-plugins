@@ -10,7 +10,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  audio_streamer: ^4.0.0
+  audio_streamer:
+    path: ../audio_streamer
+#  audio_streamer:
+#    git:
+#      url: git@github.com:Chic-Apps/audio-streamer-library.git
+#      path: packages/audio_streamer
+
+#  audio_streamer:
+#    git:
+#      url: git@github.com:Color-Lights-Pro/audio-streamer-library.git
+#      path: packages/audio_streamer
 
 dev_dependencies:
   flutter_test:

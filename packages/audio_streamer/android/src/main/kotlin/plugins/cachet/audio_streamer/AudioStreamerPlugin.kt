@@ -28,7 +28,7 @@ class AudioStreamerPlugin : FlutterPlugin, RequestPermissionsResultListener, Eve
     // / Method channel for returning the sample rate.
     private val methodChannelName = "audio_streamer.methodChannel"
     private var sampleRate = 44100 // standard value to initialize
-    private var bufferSize = 6400 * 2; // / Magical number!
+    private var bufferSize = 100; // / Magical number!
     private val maxAmplitude = 32767 // same as 2^15
     private val logTag = "AudioStreamerPlugin"
 

@@ -111,9 +111,18 @@ public class SwiftAudioStreamerPlugin: NSObject, FlutterPlugin, FlutterStreamHan
     engine = AVAudioEngine()
 
     do {
-      try AVAudioSession.sharedInstance().setCategory(
-        AVAudioSession.Category.playAndRecord, options: .mixWithOthers)
-      try AVAudioSession.sharedInstance().setActive(true)
+//       try AVAudioSession.sharedInstance().setCategory(
+//         AVAudioSession.Category.playAndRecord, options: .mixWithOthers,)
+//       try AVAudioSession.sharedInstance().setActive(true)
+        try AVAudioSession.sharedInstance().setCategory(
+            AVAudioSession.Category.playAndRecord,
+            mode: .videoRecording,
+            options: [.mixWithOthers, .defaultToSpeaker, .allowBluetooth, .allowAirPlay]
+        )
+
+        // Activa la sesión de audio, notificando a otras aplicaciones para que reanuden la reproducción
+        try AVAudioSession.sharedInstance().setActive(true, options: [.notifyOthersOnDeactivation])
+
 
       if let sampleRateNotNull = sampleRate {
         // Try to set sample rate
